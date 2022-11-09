@@ -21,8 +21,17 @@ jobs:
         id: step1
         run: |
           echo "firstword=hello" >> $GITHUB_ENV        
-      - name: Git output read
+      - name: Git output write multiple line
         id: step2
         run: |
+          echo "JSON_RESPONSE<<EOF" >> $GITHUB_ENV        
+          xxx >>$GITHUB_ENV
+          yxxx >>$GITHUB_ENV
+          echo "EOF" >> $GITHUB_ENV        
+          
+      - name: Git output read
+        id: step3
+        run: |
           echo '${{  env.firstword }}'
+          echo '${{  env.JSON_RESPONSE }}'
   

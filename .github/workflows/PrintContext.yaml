@@ -22,5 +22,5 @@ jobs:
         run: |
           echo "firstword=hello" >> $GITHUB_OUTPUT
           echo $GITHUB_OUTPUT
-          echo ${{ steps.step2.outputs }}
+          echo ${{ steps.step2.outputs.firstword }}
   

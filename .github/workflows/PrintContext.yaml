@@ -17,10 +17,12 @@ jobs:
         run: echo '${{ toJSON(strategy) }}'
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
-      - name: Git output
+      - name: Git output write
+        id: step1
+        run: |
+          echo "firstword=hello" >> $GITHUB_OUTPUT          
+      - name: Git output read
         id: step2
         run: |
-          echo "firstword=hello" >> $GITHUB_OUTPUT
-          echo $GITHUB_OUTPUT
-          echo ${{ steps.step2.outputs.firstword }}
+          echo '${{ steps.step2.outputs.firstword }}'
   

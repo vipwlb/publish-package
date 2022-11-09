@@ -18,5 +18,7 @@ jobs:
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
       - name: Git output
-        run: echo $GITHUB_OUTPUT
+        run: |
+          echo "firstword=hello" >> $GITHUB_OUTPUT
+          echo $GITHUB_OUTPUT
   

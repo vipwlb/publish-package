@@ -20,9 +20,9 @@ jobs:
       - name: Git output write
         id: step1
         run: |
-          echo "firstword=hello" >> $GITHUB_OUTPUT          
+          echo "firstword=hello" >> $GITHUB_ENV        
       - name: Git output read
         id: step2
         run: |
-          echo '${{ steps.step1.outputs.firstword }}'
+          echo '${{  env.firstword }}'
   

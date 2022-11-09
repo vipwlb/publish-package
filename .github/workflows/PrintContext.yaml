@@ -17,20 +17,9 @@ jobs:
         run: echo '${{ toJSON(strategy) }}'
       - name: Dump matrix context
         run: echo '${{ toJSON(matrix) }}'
-      - name: Git output write
-        id: step1
-        run: |
-          echo "firstword=hello" >> $GITHUB_ENV        
-      - name: Git output write multiple line
-        id: step2
-        run: |
-          echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV        
-          curl https://example.lab >> $GITHUB_ENV
-          echo 'EOF' >> $GITHUB_ENV        
-          
-      - name: Git output read
-        id: step3
-        run: |
-          echo '${{  env.firstword }}'
-          echo '${{  env.JSON_RESPONSE }}'
+      - name: Set color
+        id: random-color-generator
+        run: echo "SELECTED_COLOR=green" >> $GITHUB_OUTPUT
+      - name: Get color
+        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
   

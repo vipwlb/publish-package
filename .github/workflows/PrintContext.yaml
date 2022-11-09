@@ -24,10 +24,10 @@ jobs:
       - name: Git output write multiple line
         id: step2
         run: |
-          echo "JSON_RESPONSE<<EOF" >> $GITHUB_ENV        
-          xxx >>$GITHUB_ENV
-          yxxx >>$GITHUB_ENV
-          echo "EOF" >> $GITHUB_ENV        
+          echo 'JSON_RESPONSE<<EOF' >> $GITHUB_ENV        
+          xxx abc >> $GITHUB_ENV
+          yxxx 123 >> $GITHUB_ENV
+          echo 'EOF' >> $GITHUB_ENV        
           
       - name: Git output read
         id: step3
